@@ -9,8 +9,8 @@ public class Constants {
 
     public static final class ModuleConstants {
         public static final double kWheelDiameterMeters = Units.inchesToMeters(4);
-        public static final double kDriveMotorGearRatio = 1 / 5.8462;
-        public static final double kTurningMotorGearRatio = 1 / 18.0;
+        public static final double kDriveMotorGearRatio = 1.0 / 8.14; // L1 (L2 is 1 / 6.75).
+        public static final double kTurningMotorGearRatio = 7.0 / 150.0; // Do not change.
         public static final double kDriveEncoderRot2Meter = kDriveMotorGearRatio * Math.PI * kWheelDiameterMeters;
         public static final double kTurningEncoderRot2Rad = kTurningMotorGearRatio * 2 * Math.PI;
         public static final double kDriveEncoderRPM2MeterPerSec = kDriveEncoderRot2Meter / 60;
@@ -19,26 +19,26 @@ public class Constants {
     }
 
     public static final class DriveConstants {
-        public static final double kTrackWidth = Units.inchesToMeters(20.0);
-        // FIXME: Right wheel to left wheel.
-        public static final double kWheelBase = Units.inchesToMeters(20.0);
-        // FIXME: Front wheel to back wheel.
+        public static final double kTrackWidth = 0.51;
+        // FIXED: Right wheel to left wheel (meters).
+        public static final double kWheelBase = 0.51;
+        // FIXED: Front wheel to back wheel (meters).
         public static final SwerveDriveKinematics kDriveKinematics = new SwerveDriveKinematics(
                 new Translation2d(kWheelBase / 2, -kTrackWidth / 2), new Translation2d(kWheelBase / 2, kTrackWidth / 2),
                 new Translation2d(-kWheelBase / 2, -kTrackWidth / 2),
                 new Translation2d(-kWheelBase / 2, kTrackWidth / 2));
 
-        public static final int kFrontLeftDriveMotorPort = 1;
-        public static final int kBackLeftDriveMotorPort = 2;
-        public static final int kFrontRightDriveMotorPort = 3;
-        public static final int kBackRightDriveMotorPort = 4;
-        // FIXME: Input correct Spark Max IDs Driver Motors.
+        public static final int kFrontLeftDriveMotorPort = 9;
+        public static final int kBackLeftDriveMotorPort = 17;
+        public static final int kFrontRightDriveMotorPort = 8;
+        public static final int kBackRightDriveMotorPort = 18;
+        // FIXED: Input correct Spark Max IDs Driver Motors.
 
-        public static final int kFrontLeftTurningMotorPort = 5;
+        public static final int kFrontLeftTurningMotorPort = 14;
         public static final int kBackLeftTurningMotorPort = 6;
-        public static final int kFrontRightTurningMotorPort = 7;
-        public static final int kBackRightTurningMotorPort = 8;
-        // FIXME: Input correct Spark Max IDs Turning Motors.
+        public static final int kFrontRightTurningMotorPort = 16;
+        public static final int kBackRightTurningMotorPort = 15;
+        // FIXED: Input correct Spark Max IDs Turning Motors.
 
         public static final boolean kFrontLeftTurningEncoderReversed = true;
         public static final boolean kBackLeftTurningEncoderReversed = true;
@@ -50,33 +50,34 @@ public class Constants {
         public static final boolean kFrontRightDriveEncoderReversed = false;
         public static final boolean kBackRightDriveEncoderReversed = false;
 
-        public static final int kFrontLeftDriveAbsoluteEncoderPort = 0;
-        public static final int kBackLeftDriveAbsoluteEncoderPort = 1;
-        public static final int kFrontRightDriveAbsoluteEncoderPort = 2;
-        public static final int kBackRightDriveAbsoluteEncoderPort = 3;
-        // FIXME: Input correct Drive Absolute Encoder values.
+        public static final int kFrontLeftDriveAbsoluteEncoderPort = 50;
+        public static final int kBackLeftDriveAbsoluteEncoderPort = 51;
+        public static final int kFrontRightDriveAbsoluteEncoderPort = 53;
+        public static final int kBackRightDriveAbsoluteEncoderPort = 52;
+        // FIXED: Input correct Drive Absolute Encoder values.
 
         public static final boolean kFrontLeftDriveAbsoluteEncoderReversed = false;
         public static final boolean kBackLeftDriveAbsoluteEncoderReversed = false;
         public static final boolean kFrontRightDriveAbsoluteEncoderReversed = false;
         public static final boolean kBackRightDriveAbsoluteEncoderReversed = false;
 
-        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = -0.250;
-        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = 0.250;
-        public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = -0.250;
-        public static final double kBackRightDriveAbsoluteEncoderOffsetRad = 0.250;
-        // FIXME: Input correct Drive Absolute Encoder Offset values.
+        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = -Math.toRadians(57.9);
+        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = -Math.toRadians(12.8 + 180);
+        public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = -Math.toRadians(15.3);
+        public static final double kBackRightDriveAbsoluteEncoderOffsetRad = -Math.toRadians(34.3 + 180);
+        // FIXED: Input correct Drive Absolute Encoder Offset values.
+        // TODO: Might need tweaking.
 
         public static final double kPhysicalMaxSpeedMetersPerSecond = 5;
         public static final double kPhysicalMaxAngularSpeedRadiansPerSecond = 2 * 2 * Math.PI;
-        // FIXME: Input correct Physical Max Speed (Angular/Translational) values.
+        // FIXED: Input correct Physical Max Speed (Angular/Translational) values.
 
         public static final double kTeleDriveMaxSpeedMetersPerSecond = kPhysicalMaxSpeedMetersPerSecond / 4;
         public static final double kTeleDriveMaxAngularSpeedRadiansPerSecond = kPhysicalMaxAngularSpeedRadiansPerSecond
                 / 4;
         public static final double kTeleDriveMaxAccelerationUnitsPerSecond = 3;
         public static final double kTeleDriveMaxAngularAccelerationUnitsPerSecond = 3;
-        // FIXME: Input correct TeleDrive Max Acceleration values.
+        // FIXED: Input correct TeleDrive Max Acceleration values.
     }
 
     public static final class AutoConstants {
@@ -87,7 +88,7 @@ public class Constants {
         public static final double kMaxAngularAccelerationRadiansPerSecondSquared = Math.PI / 4;
         public static final double kPXController = 1.5;
         public static final double kPYController = 1.5;
-        public static final double KPThetaController = 3;
+        public static final double kPThetaController = 3;
 
         public static final TrapezoidProfile.Constraints kThetaControllerConstrains = new TrapezoidProfile.Constraints(
                 kMaxAngularSpeedRadiansPerSecond, kMaxAngularAccelerationRadiansPerSecondSquared);
