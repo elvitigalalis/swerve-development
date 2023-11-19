@@ -85,11 +85,14 @@ public class SwerveModule {
 
     public void setDesiredState(SwerveModuleState state) {
         state = SwerveModuleState.optimize(state, getState().angle);
-        driveMotor.set(state.speedMetersPerSecond / DriveConstants.kPhysicalMaxSpeedPerSecond);
+        driveMotor.set(state.speedMetersPerSecond / DriveConstants.kPhysicalMaxSpeedMetersPerSecond);
         turningMotor.set(turningPIDController.calculate(getTurningPosition(), state.angle.getRadians()));
         // FIXME : Reminder for LEL16 (self) to implement PID FeedForward Here for better drive speed calculations.
         SmartDashboard.putString("Swerve[" + absoluteEncoder.getChannel() + "] state", state.toString());
     }
 
-
+    public void stop() {
+        driveMotor.set(0);
+        turningMotor.set(0);
+    }
 }
