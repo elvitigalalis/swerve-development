@@ -30,7 +30,7 @@ public class Constants {
 
         public static final int kFrontLeftDriveMotorPort = 9;
         public static final int kBackLeftDriveMotorPort = 17;
-        public static final int kFrontRightDriveMotorPort = 8;
+        public static final int kFrontRightDriveMotorPort = 10;
         public static final int kBackRightDriveMotorPort = 18;
         // FIXED: Input correct Spark Max IDs Driver Motors.
 
@@ -61,10 +61,10 @@ public class Constants {
         public static final boolean kFrontRightDriveAbsoluteEncoderReversed = false;
         public static final boolean kBackRightDriveAbsoluteEncoderReversed = false;
 
-        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = -Math.toRadians(57.9);
-        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = -Math.toRadians(12.8 + 180);
+        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = -Math.toRadians(57.9+180);
+        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = -Math.toRadians(-12.8);
         public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = -Math.toRadians(15.3);
-        public static final double kBackRightDriveAbsoluteEncoderOffsetRad = -Math.toRadians(34.3 + 180);
+        public static final double kBackRightDriveAbsoluteEncoderOffsetRad = -Math.toRadians(34.3);
         // FIXED: Input correct Drive Absolute Encoder Offset values.
         // TODO: Might need tweaking.
 
