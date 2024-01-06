@@ -40,14 +40,14 @@ public class Constants {
         public static final int kBackRightTurningMotorPort = 15;
         // FIXED: Input correct Spark Max IDs Turning Motors.
 
-        public static final boolean kFrontLeftTurningEncoderReversed = true;
-        public static final boolean kBackLeftTurningEncoderReversed = true;
-        public static final boolean kFrontRightTurningEncoderReversed = true;
-        public static final boolean kBackRightTurningEncoderReversed = true;
+        public static final boolean kFrontLeftTurningEncoderReversed = false;
+        public static final boolean kBackLeftTurningEncoderReversed = false;
+        public static final boolean kFrontRightTurningEncoderReversed = false;
+        public static final boolean kBackRightTurningEncoderReversed = false;
 
-        public static final boolean kFrontLeftDriveEncoderReversed = true;
+        public static final boolean kFrontLeftDriveEncoderReversed = false;
         public static final boolean kBackLeftDriveEncoderReversed = true;
-        public static final boolean kFrontRightDriveEncoderReversed = true;
+        public static final boolean kFrontRightDriveEncoderReversed = false;
         public static final boolean kBackRightDriveEncoderReversed = true;
 
         public static final int kFrontLeftDriveAbsoluteEncoderPort = 50;
@@ -61,10 +61,10 @@ public class Constants {
         public static final boolean kFrontRightDriveAbsoluteEncoderReversed = true;
         public static final boolean kBackRightDriveAbsoluteEncoderReversed = true;
 
-        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = Math.toRadians(0);
-        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = Math.toRadians(0);
-        public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = Math.toRadians(0);
-        public static final double kBackRightDriveAbsoluteEncoderOffsetRad = Math.toRadians(0);
+        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = Math.toRadians(175.6);
+        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = Math.toRadians(3.2);
+        public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = Math.toRadians(179.7);
+        public static final double kBackRightDriveAbsoluteEncoderOffsetRad = Math.toRadians(-2.8);
         // FIXED: Input correct Drive Absolute Encoder Offset values.
         // TODO: Might need tweaking.
 

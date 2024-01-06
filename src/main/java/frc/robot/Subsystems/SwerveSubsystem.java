@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
+import java.lang.Math;
 
 public class SwerveSubsystem extends SubsystemBase {
     private final SwerveModule frontLeft = new SwerveModule(DriveConstants.kFrontLeftDriveMotorPort,
@@ -87,10 +88,10 @@ public class SwerveSubsystem extends SubsystemBase {
         // SmartDashboard.putNumber("Front Right Encoder (Degrees)", Math.toDegrees(frontRight.getAbsoluteEncoderRad()));
         // SmartDashboard.putNumber("Back Left Encoder (Degrees)", Math.toDegrees(backLeft.getAbsoluteEncoderRad()));
         // SmartDashboard.putNumber("Back Right Encoder (Degrees)", Math.toDegrees(backRight.getAbsoluteEncoderRad()));
-        SmartDashboard.putNumber("Front Left Encoder (Degrees)", frontLeft.getAbsoluteEncoderRad());
-        SmartDashboard.putNumber("Back Left Encoder (Degrees)", backLeft.getAbsoluteEncoderRad());
-        SmartDashboard.putNumber("Front Right Encoder (Degrees)", frontRight.getAbsoluteEncoderRad());
-        SmartDashboard.putNumber("Back Right Encoder (Degrees)", backRight.getAbsoluteEncoderRad());
+        SmartDashboard.putNumber("Front Left Encoder (Degrees)", Math.toDegrees(frontLeft.getAbsoluteEncoderRad()));
+        SmartDashboard.putNumber("Back Left Encoder (Degrees)", Math.toDegrees(backLeft.getAbsoluteEncoderRad()));
+        SmartDashboard.putNumber("Front Right Encoder (Degrees)", Math.toDegrees(frontRight.getAbsoluteEncoderRad()));
+        SmartDashboard.putNumber("Back Right Encoder (Degrees)", Math.toDegrees(backRight.getAbsoluteEncoderRad()));
     }
 
     public void stopModules() {
