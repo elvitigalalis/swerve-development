@@ -1,5 +1,7 @@
 package frc.robot.Subsystems;
 
+import com.ctre.phoenix.ErrorCode;
+import com.ctre.phoenix.sensors.AbsoluteSensorRange;
 import com.ctre.phoenix.sensors.CANCoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
@@ -73,9 +75,8 @@ public class SwerveModule {
     }
 
     public double getAbsoluteEncoderRad() {
-        double angle = absoluteEncoder.getAbsolutePosition() - 180;
-        angle *= Math.PI / 180;
-        angle -= absoluteEncoderOffsetRad;
+        double angle = absoluteEncoder.getAbsolutePosition();
+        angle += absoluteEncoderOffsetRad;
         return angle * (absoluteEncoderReversed ? -1.0 : 1.0);
     }
 
